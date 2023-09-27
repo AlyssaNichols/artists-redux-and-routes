@@ -4,7 +4,9 @@ const express = require('express');
 const router = express.Router();
 // Using a array of data on the server, we will eventually
 // move this back into the database.
+
 const artists = require('../modules/artist.data');
+
 let nextId = artists.length;
 
 router.delete('/:id', (req, res) => {    
@@ -21,6 +23,7 @@ router.post('/', (req, res) => {
   // add an id to the incoming artist
   artistToAdd.id = nextId;
   nextId += 1;
+  console.log(artists);
   artists.push(artistToAdd);
   res.send(201);
 }); // END GET Route

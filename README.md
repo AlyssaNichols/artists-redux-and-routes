@@ -11,8 +11,8 @@ For this activity you'll be adding Redux to the famous artists project. Redux ha
 
 ## Tasks
 
-- [ ] Move the client side artists array from local state in `App.js` to the artistReducer.
-- [ ] Create a new component with an add artist form that will POST data to the **server** on submit. 
+- [ x] Move the client side artists array from local state in `App.js` to the artistReducer.
+- [ x] Create a new component with an add artist form that will POST data to the **server** on submit. 
    > Data sent to the server should be in the format `{name: 'name of artist'}`. 
    > The id is added by the database on the server side.
 - [ ] Add a `Router` and navigation to `App.js`.

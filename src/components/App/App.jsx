@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import ArtistList from '../ArtistList/ArtistList';
+import { useDispatch } from 'react-redux';
+import ArtistForm from '../ArtistForm/ArtistForm';
+
 
 function App() {
-  // TODO - remove this local state and replace with Redux state 
-  let [artists, setArtists] = useState([]);
-    
+
+    const dispatch = useDispatch();
   // get Artists data from server on load
   useEffect(() => {
     console.log('in useEffect');
@@ -20,17 +22,24 @@ function App() {
   const refreshArtists = () => {
     axios({
       method: 'GET',
-      url: '/artist'
+      url: '/artist/'
     })
       .then((response) => {
         // response.data is the array of artists
         console.log(response.data);
         // TODO - update this to dispatch to Redux
-        setArtists(response.data)
+        dispatch({ type: "SET_ARTISTS", payload: response.data})
       })
       .catch((error) => {
         console.log('error on GET', error);
       });
+  };
+
+  const addArtist = (artist) => {
+    axios
+      .post("/artist/", artist)
+      .then((response) => refreshArtists())
+      .catch((err) => console.log("axios post in app.jsx", err));
   };
 
   return (
@@ -39,7 +48,8 @@ function App() {
         <h1 className="App-title">Famous Artists</h1>
       </header>
       <p>Welcome to our collection of amazing artists!</p>
-      <ArtistList refreshArtists={refreshArtists} artistList={artists} />
+      <ArtistForm addArtist={addArtist}/>
+      <ArtistList refreshArtists={refreshArtists} />
     </div>
   );
 
