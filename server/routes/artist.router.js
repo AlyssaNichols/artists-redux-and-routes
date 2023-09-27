@@ -4,15 +4,16 @@ const express = require('express');
 const router = express.Router();
 // Using a array of data on the server, we will eventually
 // move this back into the database.
-
 const artists = require('../modules/artist.data');
-
 let nextId = artists.length;
 
 router.delete('/:id', (req, res) => {    
-  // TODO: Use filter to remove the artist
-  // artists = artists.filter(...)
-
+  const artistToDelete = Number(req.params.id);
+console.log(artistToDelete)
+  // Use the filter method to remove the artist with the specified id
+  artists = artists.filter((artist) => artist.id !== artistToDelete);
+  nextId = artists.length + 1; 
+  // Optionally
   res.sendStatus(200);
 });
 
@@ -23,7 +24,6 @@ router.post('/', (req, res) => {
   // add an id to the incoming artist
   artistToAdd.id = nextId;
   nextId += 1;
-  console.log(artists);
   artists.push(artistToAdd);
   res.send(201);
 }); // END GET Route
