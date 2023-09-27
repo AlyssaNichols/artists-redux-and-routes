@@ -18,7 +18,7 @@ function ArtistList({ refreshArtists }) {
           </tr>
         </thead>
         <tbody>
-          {artistList.map((artist) => {
+          {artistList.map((artist, i) => {
             return (
               <ArtistListItem
                 key={artist.id}

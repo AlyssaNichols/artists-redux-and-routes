@@ -15,8 +15,8 @@ const artistReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_ARTISTS":
       return action.payload;
-    case "REMOVE_ARTIST":
-      return state.filter((artist) => artist.id !== action.payload.id);
+    // case "REMOVE_ARTIST":
+    //   return state.filter((artist) => artist.id !== action.payload.id);
     default:
       return state;
   }

@@ -9,7 +9,6 @@ function ArtistListItem({ refreshArtists, artist }) {
       url: `/artist/${artist.id}`
     })
       .then((response) => { 
-        dispatch({ type: "REMOVE_ARTIST", payload: artist });
         refreshArtists() 
       })
       .catch((error) => {

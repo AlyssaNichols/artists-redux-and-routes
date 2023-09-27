@@ -1,6 +1,6 @@
 
 
-const artists = [
+let artists = [
   { id: 0, name: 'Picasso' },
   { id: 1, name: 'Van Gogh' },
   { id: 2, name: 'Frida Kahlo' },
