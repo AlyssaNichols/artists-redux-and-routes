@@ -6,8 +6,14 @@ function ArtistList({ refreshArtists }) {
   const artistList = useSelector(store => store.artistReducer);
   console.log(artistList)
   return (
-    <div>
+    <div className="table">
       <table>
+        <thead>
+        <tr>
+          <th > Artist Name </th>
+          <th> Delete Artist </th>
+          </tr>
+        </thead>
         <tbody>
           {artistList.map((artist) => {
             return (
