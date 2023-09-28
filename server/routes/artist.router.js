@@ -9,10 +9,9 @@ let nextId = artists.length;
 
 router.delete("/:id", (req, res) => {
   const id = Number(req.params.id);
-  console.log(typeof id);
-  console.log(artists.filter((artist, i) => i !== id));
+  // console.log(artists.filter((artist, i) => i !== id));
   // Use the filter method to remove the artist with the specified id
-  artists = artists.filter((artist, i) => i !== id);
+  artists = artists.filter((artist) => artist.id !== id);
   // Optionally
   res.sendStatus(200);
 });
