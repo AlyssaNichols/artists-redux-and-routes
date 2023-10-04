@@ -74,13 +74,13 @@ function App() {
             <hr />
             <br />
             <h3>Welcome to our Home Page!</h3>
-              <p>Click the <u>Add an Artist</u> button at the top of the page to be directed to a page where you can add an artist. </p>
-              <p>Click the <u>View All Artists</u> button at the top of the page to be directed to our Artist Gallery.</p>
+              <p>Click the <b>Add an Artist</b> button at the top of the page to be directed to a page where you can add an artist. </p>
+              <p>Click the <b>View All Artists</b> button at the top of the page to be directed to our Artist Gallery.</p>
           </Route>
           <Route path="/addArtist" exact>
             <header className="App-header">
               <h1>Add an Artist</h1>
-              </header>
+       ›       </header>
             <br/>
             <hr />
             <br />
